@@ -12,5 +12,8 @@
   "labels": ["automerge"],
   "cargo": {
     "fileMatch": ["^Cargo\\.(lock|toml)$"]
+  },
+  "github-actions": {
+    "ignorePaths": [".github/workflows/release.yml"]
   }
 }
