@@ -81,7 +81,7 @@ async fn latest_image(
                 .ok()
         })
         .filter(|(version, _)| allow_snapshots || version.is_release())
-        .max_by(|a, b| a.0.cmp(&b.0))
+        .max_by(|(a, _), (b, _)| a.cmp(&b))
 }
 
 async fn update_lockfile(
