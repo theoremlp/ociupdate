@@ -76,8 +76,7 @@ async fn latest_image(
         .into_iter()
         .filter_map(|id| {
             id.image_tag()
-                .map(|tag| GitDescribeVersion::from_str(tag).ok())
-                .flatten()
+                .and_then(|tag| GitDescribeVersion::from_str(tag).ok())
                 .map(|v| (v, id.image_digest().unwrap().to_owned()))
         })
         .filter(|(version, _)| allow_snapshots || version.is_release())
