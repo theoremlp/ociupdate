@@ -74,11 +74,11 @@ async fn latest_image(
     items
         .expect("Unable to retrieve image list")
         .into_iter()
-        .filter(|id| id.image_tag.is_some())
         .filter_map(|id| {
-            GitDescribeVersion::from_str(id.image_tag().unwrap())
-                .map(move |v| (v, id.image_digest().unwrap().to_owned()))
-                .ok()
+            id.image_tag()
+                .map(|tag| GitDescribeVersion::from_str(tag).ok())
+                .flatten()
+                .map(|v| (v, id.image_digest().unwrap().to_owned()))
         })
         .filter(|(version, _)| allow_snapshots || version.is_release())
         .max_by(|(a, _), (b, _)| a.cmp(b))
