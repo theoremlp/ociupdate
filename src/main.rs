@@ -11,8 +11,8 @@ mod version;
 
 #[derive(Parser)]
 struct Cli {
-    #[clap(long)]
     /// Path to a Theorem OCI lockfile (defaults to './oci.lock.json')
+    #[clap(long)]
     lockfile: Option<std::path::PathBuf>,
 
     #[command(subcommand)]
