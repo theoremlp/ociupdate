@@ -1,0 +1,37 @@
+{
+  "$id": "https://github.com/theoremlp/ociupdate/oci.lock.schema.json",
+  "title": "Describes OCI images to make available within Bazel",
+  "definitions": {
+    "Lockfile": {
+      "type": "object",
+      "properties": {
+        "$schema": { "type": "string" },
+        "v1": { "$ref": "#/definitions/LockfileV1" }
+      }
+    },
+    "LockfileV1": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ImageDefinition"
+          }
+        }
+      }
+    },
+    "ImageDefinition": {
+      "type": "object",
+      "properties": {
+        "image": { "type": "string" },
+        "tag": { "type": "string" },
+        "digest": { "type": "string" },
+        "platforms": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$ref": "#/definitions/Lockfile"
+}
