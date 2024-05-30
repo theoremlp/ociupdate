@@ -1,6 +1,6 @@
 # ociupdate
 
-Companion CLI for working with a [custom lockfile format](oci.lock.schema.json) for [rules_oci](https://github.com/aspect-dev/rules_oci).
+Companion CLI for working with a [custom lockfile format](oci.lock.schema.json) for [rules_oci](https://github.com/aspect-build/rules_oci).
 
 ## Updating Dependencies
 
