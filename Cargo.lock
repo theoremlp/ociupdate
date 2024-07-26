@@ -1001,7 +1001,6 @@ dependencies = [
  "aws-sdk-ecr",
  "clap",
  "futures",
- "once_cell",
  "regex",
  "serde",
  "serde_json",

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     ":dependencyDashboard",
     "group:monorepos",
@@ -15,5 +16,23 @@
   },
   "github-actions": {
     "ignorePaths": [".github/workflows/release.yml"]
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["^rust-toolchain\\.toml?$"],
+      "matchStrings": [
+        "channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+(\\.\\d+)?)\""
+      ],
+      "depNameTemplate": "rust",
+      "lookupNameTemplate": "rust-lang/rust",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["regex"],
+      "matchPackageNames": ["rust"],
+      "commitMessageTopic": "Rust"
+    }
+  ]
 }
