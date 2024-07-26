@@ -1,6 +1,5 @@
-use once_cell::sync::Lazy as LazyLock;
-
 use regex::Regex;
+use std::sync::LazyLock;
 
 static REPO_PATTERN: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(

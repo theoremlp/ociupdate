@@ -1,8 +1,5 @@
-use std::fmt::Display;
-
-use once_cell::sync::Lazy as LazyLock;
-
 use regex::{Captures, Regex};
+use std::{fmt::Display, sync::LazyLock};
 
 static VERSION_PATTERN: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(
