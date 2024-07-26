@@ -1,2 +1,4 @@
 [toolchain]
 current = "1.80"
+components = ["rustfmt", "rustc"]
+profile = "default"
